@@ -1,1 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SOS Nettoyage inc — Entreprise familiale de nettoyage commercial depuis 2016. Plus de 250 clients satisfaits dans le Grand Montréal.">
+<title>SOS Nettoyage inc — Nettoyage Commercial Grand Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0d2d6b;--blue-mid:#1a4a9e;--green:#22c55e;--green-dark:#16a34a;--white:#fff;--gray-light:#f8fafc;--gray:#64748b;--dark:#0a0f1e;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);overflow-x:hidden;background:#fff;}
+h1,h2,h3,h4{font-family:'Outfit',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.97);border-bottom:1px solid rgba(34,197,94,0.15);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-circle{width:42px;height:42px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:0.85rem;font-family:'Outfit',sans-serif;flex-shrink:0;}
+.nav-logo span{font-size:1rem;font-weight:700;color:white;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{background:var(--green)!important;color:#000!important;padding:10px 22px;border-radius:50px;font-weight:700!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:24px;height:2px;background:white;border-radius:2px;display:block;}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(10,15,30,0.98);padding:24px 8%;z-index:999;flex-direction:column;gap:16px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:600;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.mobile-menu a.mobile-cta{color:var(--green);border:2px solid var(--green);border-radius:50px;text-align:center;padding:12px;margin-top:8px;}
+.hero{min-height:100vh;background:linear-gradient(135deg,#0a0f1e 0%,#0d2d6b 60%,#0a2550 100%);display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(34,197,94,0.06) 0%,transparent 70%);top:50%;right:-100px;transform:translateY(-50%);}
+.hero-content{position:relative;z-index:2;padding:100px 8% 80px;max-width:800px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:var(--green);padding:7px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;margin-bottom:22px;letter-spacing:0.5px;text-transform:uppercase;font-family:'Outfit',sans-serif;}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;display:inline-block;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:white;line-height:1.08;margin-bottom:20px;letter-spacing:-1.5px;}
+.hero h1 span{color:var(--green);}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:36px;max-width:560px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:50px;font-size:0.95rem;font-weight:700;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none;font-family:'Outfit',sans-serif;}
+.btn-primary{background:var(--green);color:#000;}
+.btn-primary:hover{background:var(--green-dark);color:white;transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,197,94,0.35);}
+.btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.35);}
+.btn-outline:hover{border-color:white;transform:translateY(-2px);}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;}
+.stat-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:900;color:var(--green);line-height:1;}
+.stat-label{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+.confiance{background:var(--blue);padding:50px 8%;}
+.confiance-grid{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+.confiance-item{text-align:center;}
+.confiance-num{font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:900;color:var(--green);line-height:1;}
+.confiance-label{font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:6px;font-weight:300;}
+section{padding:90px 8%;}
+.section-tag{display:inline-block;font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--blue);line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;}
+.section-sub{font-size:1rem;color:var(--gray);line-height:1.7;font-weight:300;}
+.apropos{background:var(--gray-light);}
+.apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.apropos-text .section-sub{margin-bottom:16px;}
+.values{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.value{display:flex;align-items:center;gap:12px;font-size:0.9rem;font-weight:500;color:var(--blue);}
+.check{width:26px;height:26px;background:rgba(34,197,94,0.15);color:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;flex-shrink:0;}
+.apropos-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.apropos-stat{background:white;border-radius:16px;padding:28px 24px;text-align:center;border:1px solid #e8edf5;box-shadow:0 4px 20px rgba(13,45,107,0.06);}
+.apropos-stat-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:900;color:var(--green);}
+.apropos-stat-label{font-size:0.82rem;color:var(--gray);margin-top:6px;font-weight:300;line-height:1.4;}
+.services{background:white;}
+.services-header{text-align:center;margin-bottom:52px;}
+.services-header .section-sub{margin:0 auto;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.service-card{background:var(--gray-light);border-radius:16px;padding:30px 26px;border:1px solid #e8edf5;transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transition:transform 0.3s;}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(13,45,107,0.1);background:white;}
+.service-card:hover::after{transform:scaleX(1);}
+.service-icon{font-size:2rem;margin-bottom:14px;display:block;}
+.service-card h3{font-size:1rem;font-weight:700;color:var(--blue);margin-bottom:10px;}
+.service-card p{font-size:0.86rem;color:var(--gray);line-height:1.65;font-weight:300;}
+.why{background:var(--gray-light);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.why-features{display:flex;flex-direction:column;gap:22px;margin-top:28px;}
+.feature{display:flex;gap:16px;align-items:flex-start;}
+.feature-icon{width:44px;height:44px;background:rgba(34,197,94,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.feature-text h4{font-size:0.92rem;font-weight:700;color:var(--blue);margin-bottom:3px;}
+.feature-text p{font-size:0.84rem;color:var(--gray);line-height:1.6;font-weight:300;}
+.why-visual{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:20px;}
+.why-stat{background:rgba(255,255,255,0.08);border-radius:14px;padding:24px;border:1px solid rgba(255,255,255,0.1);}
+.why-stat-num{font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:900;color:var(--green);}
+.why-stat-text{font-size:0.88rem;color:rgba(255,255,255,0.65);margin-top:4px;font-weight:300;}
+.temoignages{background:white;}
+.temoignages-header{text-align:center;margin-bottom:48px;}
+.temoignages-header .section-sub{margin:0 auto;}
+.temoignages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.temoignage{background:var(--gray-light);border-radius:16px;padding:28px;border:1px solid #e8edf5;position:relative;}
+.temoignage::before{content:'\201C';font-family:'Outfit',sans-serif;font-size:5rem;color:var(--green);opacity:0.2;position:absolute;top:-10px;left:20px;line-height:1;}
+.stars{color:#f59e0b;font-size:1rem;margin-bottom:14px;}
+.temoignage p{font-size:0.88rem;color:var(--gray);line-height:1.7;font-style:italic;font-weight:300;margin-bottom:18px;}
+.temoignage-author{font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:700;color:var(--blue);}
+.temoignage-role{font-size:0.78rem;color:var(--gray);margin-top:2px;}
+.zones{background:var(--blue);text-align:center;padding:70px 8%;}
+.zones .section-title{color:white;}
+.zones-sub{color:rgba(255,255,255,0.6);margin:0 auto 40px;max-width:500px;font-size:1rem;font-weight:300;}
+.zones-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.zone-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);padding:9px 18px;border-radius:50px;font-size:0.86rem;font-weight:500;transition:all 0.2s;}
+.zone-pill:hover{background:var(--green);color:black;border-color:var(--green);}
+.soumission{background:var(--gray-light);}
+.soumission-header{text-align:center;}
+.form-wrapper{max-width:680px;margin:48px auto 0;background:white;border-radius:24px;padding:48px;box-shadow:0 4px 40px rgba(13,45,107,0.08);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:0.8rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.5px;font-family:'Outfit',sans-serif;}
+.form-group input,.form-group select,.form-group textarea{padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:0.9rem;font-family:'DM Sans',sans-serif;color:var(--dark);background:#fafbfc;transition:border-color 0.2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);background:white;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{width:100%;margin-top:10px;padding:16px;background:var(--green);color:black;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;border:none;border-radius:50px;cursor:pointer;transition:all 0.25s;}
+.form-submit:hover{background:var(--green-dark);color:white;transform:translateY(-2px);}
+.cta-section{background:linear-gradient(135deg,#0a0f1e 0%,#0d2d6b 100%);text-align:center;padding:100px 8%;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(34,197,94,0.08) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:white;margin-bottom:14px;position:relative;letter-spacing:-0.5px;}
+.cta-section h2 span{color:var(--green);}
+.cta-section>p{color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:36px;position:relative;font-weight:300;}
+.cta-contacts{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;position:relative;}
+.contact-chip{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:white;padding:12px 22px;border-radius:50px;font-size:0.88rem;text-decoration:none;transition:all 0.2s;}
+.contact-chip:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px);}
+footer{background:#0a0f1e;padding:60px 8% 28px;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:28px;}
+.footer-brand .logo-circle{margin-bottom:16px;}
+.footer-brand p{font-size:0.86rem;color:rgba(255,255,255,0.45);line-height:1.7;font-weight:300;max-width:280px;margin-top:12px;}
+.footer-col h4{font-family:'Outfit',sans-serif;color:white;font-size:0.85rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li{font-size:0.84rem;color:rgba(255,255,255,0.45);font-weight:300;}
+.footer-col ul a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--green);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.3);}
+.footer-bottom span{color:var(--green);}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .apropos-grid,.why-grid{grid-template-columns:1fr;}
+  .temoignages-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:28px;}
+  .footer-bottom{flex-direction:column;gap:6px;text-align:center;}
+  .hero-stats{gap:24px;}
+  .confiance-grid{gap:32px;}
+}
+@media(max-width:600px){
+  section{padding:60px 5%;}
+  .form-wrapper{padding:28px 18px;}
+  .form-grid{grid-template-columns:1fr;}
+  .apropos-stats{grid-template-columns:1fr 1fr;}
+  .hero-stats{display:none;}
+}
+</style>
+</head>
+<body>
 
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-circle">SOS</div>
+    <span>SOS Nettoyage inc</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pourquoi">Pourquoi nous</a></li>
+    <li><a href="#zones">Zones</a></li>
+    <li><a href="#soumission" class="nav-cta">Soumission gratuite</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#apropos" onclick="toggleMenu()">À propos</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#pourquoi" onclick="toggleMenu()">Pourquoi nous</a>
+  <a href="#zones" onclick="toggleMenu()">Zones</a>
+  <a href="#soumission" onclick="toggleMenu()" class="mobile-cta">Soumission gratuite →</a>
+</div>
+
+<section class="hero" id="accueil">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Entreprise familiale depuis 2016</div>
+    <h1>La propreté<br>professionnelle,<br><span>c'est notre signature.</span></h1>
+    <p>Plus de 250 clients nous font confiance à travers le Grand Montréal. Une équipe expérimentée, rigoureuse et disponible 7 jours sur 7.</p>
+    <div class="hero-btns">
+      <a href="#soumission" class="btn btn-primary">Soumission gratuite →</a>
+      <a href="tel:5147796541" class="btn btn-outline">📞 (514) 779-6541</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">250+</div><div class="stat-label">Clients satisfaits</div></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">Ans d'expérience</div></div>
+      <div><div class="stat-num">7/7</div><div class="stat-label">Disponibilité</div></div>
+      <div><div class="stat-num">24h</div><div class="stat-label">Réponse garantie</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="confiance">
+  <div class="confiance-grid">
+    <div class="confiance-item"><div class="confiance-num">250+</div><div class="confiance-label">Clients satisfaits depuis 2016</div></div>
+    <div class="confiance-item"><div class="confiance-num">10+</div><div class="confiance-label">Années d'expérience</div></div>
+    <div class="confiance-item"><div class="confiance-num">7/7</div><div class="confiance-label">Jours disponibles</div></div>
+    <div class="confiance-item"><div class="confiance-num">100%</div><div class="confiance-label">Satisfaction visée</div></div>
+  </div>
+</div>
+
+<section class="apropos" id="apropos">
+  <div class="apropos-grid">
+    <div class="apropos-text">
+      <span class="section-tag">Notre histoire</span>
+      <h2 class="section-title">Une entreprise familiale<br>fondée sur l'expertise</h2>
+      <p class="section-sub">L'histoire de SOS Nettoyage a débuté en 2016, après que chacun des copropriétaires ait accumulé plusieurs années d'expérience dans le domaine de l'entretien ménager — tant dans le secteur public (hôpitaux) que privé (salles de sport, résidences pour personnes âgées, bureaux, commerces).</p>
+      <p class="section-sub">Forts de cette expertise diversifiée, nous avons fondé une entreprise basée sur des valeurs solides. Depuis notre création, plus de 250 clients nous ont fait confiance.</p>
+      <div class="values">
+        <div class="value"><div class="check">✓</div> Professionnalisme</div>
+        <div class="value"><div class="check">✓</div> Rigueur et attention aux détails</div>
+        <div class="value"><div class="check">✓</div> Fiabilité et ponctualité</div>
+        <div class="value"><div class="check">✓</div> Respect du client</div>
+        <div class="value"><div class="check">✓</div> Communication claire et transparente</div>
+      </div>
+    </div>
+    <div class="apropos-stats">
+      <div class="apropos-stat"><div class="apropos-stat-num">2016</div><div class="apropos-stat-label">Année de fondation</div></div>
+      <div class="apropos-stat"><div class="apropos-stat-num">250+</div><div class="apropos-stat-label">Clients qui nous font confiance</div></div>
+      <div class="apropos-stat"><div class="apropos-stat-num">🏥</div><div class="apropos-stat-label">Expérience en hôpitaux et cliniques</div></div>
+      <div class="apropos-stat"><div class="apropos-stat-num">👨‍👩‍👦</div><div class="apropos-stat-label">Entreprise familiale 100% québécoise</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <span class="section-tag">Nos services</span>
+    <h2 class="section-title">Un service pour chaque<br>type d'établissement</h2>
+    <p class="section-sub">Du restaurant au bureau, de la clinique au gym — nous avons l'expertise pour garder votre espace impeccable.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">🏗️</span><h3>Après construction & rénovation</h3><p>Poussière, débris, résidus — on remet votre espace à neuf, prêt pour l'ouverture dès le premier jour.</p></div>
+    <div class="service-card"><span class="service-icon">🍽️</span><h3>Restaurants</h3><p>Cuisine, salle à manger, planchers — nettoyage rigoureux selon les normes d'hygiène les plus strictes.</p></div>
+    <div class="service-card"><span class="service-icon">🏢</span><h3>Bureaux</h3><p>Entretien régulier ou ponctuel adapté à vos horaires. Un environnement propre pour une équipe productive.</p></div>
+    <div class="service-card"><span class="service-icon">🛍️</span><h3>Commerces</h3><p>Boutiques, magasins, centres commerciaux — des espaces accueillants qui inspirent confiance à vos clients.</p></div>
+    <div class="service-card"><span class="service-icon">🎬</span><h3>Cinémas</h3><p>Salles, corridors, toilettes — nettoyage complet et discret entre chaque représentation.</p></div>
+    <div class="service-card"><span class="service-icon">🦷</span><h3>Cliniques dentaires</h3><p>Protocoles stricts pour garantir un environnement sain, sécuritaire et professionnel.</p></div>
+    <div class="service-card"><span class="service-icon">💆</span><h3>Spas & Salons</h3><p>Chaque recoin nettoyé pour offrir à vos clients une expérience irréprochable dès leur arrivée.</p></div>
+    <div class="service-card"><span class="service-icon">💪</span><h3>Gyms & Centres sportifs</h3><p>Équipements, vestiaires, planchers — désinfection en profondeur pour la santé de vos membres.</p></div>
+    <div class="service-card"><span class="service-icon">🏠</span><h3>Immeubles à condos</h3><p>Halls, corridors, ascenseurs, salles communes — entretien régulier de toutes les aires communes.</p></div>
+    <div class="service-card"><span class="service-icon">📦</span><h3>Avant / Après déménagement</h3><p>Partez ou arrivez dans un espace impeccable. On s'occupe de tout.</p></div>
+  </div>
+</section>
+
+<section class="why" id="pourquoi">
+  <div class="why-grid">
+    <div>
+      <span class="section-tag">Pourquoi nous choisir</span>
+      <h2 class="section-title">Ce qui nous distingue<br>de la compétition</h2>
+      <p class="section-sub">On ne fait pas juste nettoyer — on livre un résultat dont vous serez fier, à chaque intervention.</p>
+      <div class="why-features">
+        <div class="feature"><div class="feature-icon">🏆</div><div class="feature-text"><h4>10+ ans d'expérience</h4><p>Fondée en 2016, avec une expertise acquise dans les hôpitaux, résidences et commerces.</p></div></div>
+        <div class="feature"><div class="feature-icon">👨‍👩‍👦</div><div class="feature-text"><h4>Entreprise familiale</h4><p>Nous nous soucions réellement de chaque client. Service personnalisé et suivi constant.</p></div></div>
+        <div class="feature"><div class="feature-icon">✅</div><div class="feature-text"><h4>Disponibles 7 jours sur 7</h4><p>On s'adapte à votre horaire. Tôt le matin, tard le soir, nous sommes là.</p></div></div>
+        <div class="feature"><div class="feature-icon">💬</div><div class="feature-text"><h4>Communication transparente</h4><p>Soumission claire, sans surprise. Vous savez exactement ce que vous payez.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-stat"><div class="why-stat-num">250+</div><div class="why-stat-text">Clients satisfaits depuis 2016</div></div>
+      <div class="why-stat"><div class="why-stat-num">10+</div><div class="why-stat-text">Années d'expérience terrain</div></div>
+      <div class="why-stat"><div class="why-stat-num">7/7</div><div class="why-stat-text">Jours disponibles pour vous servir</div></div>
+      <div class="why-stat"><div class="why-stat-num">24h</div><div class="why-stat-text">Délai de réponse garanti</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="temoignages" id="temoignages">
+  <div class="temoignages-header">
+    <span class="section-tag">Témoignages</span>
+    <h2 class="section-title">Ce que disent nos clients</h2>
+    <p class="section-sub">Plus de 250 clients nous font confiance depuis 2016.</p>
+  </div>
+  <div class="temoignages-grid">
+    <div class="temoignage"><div class="stars">★★★★★</div><p>SOS Nettoyage fait un travail exceptionnel dans notre restaurant. Propre, rapide et professionnel à chaque visite. Je les recommande à tous les restaurateurs!</p><div class="temoignage-author">Propriétaire</div><div class="temoignage-role">Restaurant — Montréal</div></div>
+    <div class="temoignage"><div class="stars">★★★★★</div><p>Après nos travaux de rénovation, l'équipe de SOS Nettoyage a transformé notre local en quelques heures. Travail impressionnant, espace impeccable!</p><div class="temoignage-author">Gérant</div><div class="temoignage-role">Commerce — Rive-Sud</div></div>
+    <div class="temoignage"><div class="stars">★★★★★</div><p>Service impeccable pour notre clinique. Ponctuel, discret et très professionnel. Nous utilisons leurs services chaque semaine depuis plus d'un an.</p><div class="temoignage-author">Directrice</div><div class="temoignage-role">Clinique dentaire — Longueuil</div></div>
+  </div>
+</section>
+
+<section class="zones" id="zones">
+  <span class="section-tag" style="color:rgba(255,255,255,0.5)">Territoire desservi</span>
+  <h2 class="section-title">Partout dans le Grand Montréal</h2>
+  <p class="zones-sub">Rive-Sud, Rive-Nord et Montréal — nous nous déplaçons partout pour vous servir.</p>
+  <div class="zones-grid">
+    <span class="zone-pill">Montréal</span><span class="zone-pill">Laval</span><span class="zone-pill">Longueuil</span>
+    <span class="zone-pill">Brossard</span><span class="zone-pill">Saint-Lambert</span><span class="zone-pill">Greenfield Park</span>
+    <span class="zone-pill">Saint-Hubert</span><span class="zone-pill">Boucherville</span><span class="zone-pill">Varennes</span>
+    <span class="zone-pill">Saint-Jean-sur-Richelieu</span><span class="zone-pill">Chambly</span><span class="zone-pill">Sainte-Julie</span>
+    <span class="zone-pill">Terrebonne</span><span class="zone-pill">Repentigny</span><span class="zone-pill">Mascouche</span>
+    <span class="zone-pill">Blainville</span><span class="zone-pill">Boisbriand</span><span class="zone-pill">Saint-Jérôme</span>
+  </div>
+</section>
+
+<section class="soumission" id="soumission">
+  <div class="soumission-header">
+    <span class="section-tag">Soumission gratuite</span>
+    <h2 class="section-title">Obtenez votre soumission<br>en 24 heures</h2>
+    <p class="section-sub" style="margin:0 auto">Remplissez le formulaire et nous vous contactons rapidement avec une soumission claire et sans engagement.</p>
+  </div>
+  <div class="form-wrapper">
+    <div class="form-grid">
+      <div class="form-group"><label>Nom complet *</label><input type="text" placeholder="Jean Tremblay" required></div>
+      <div class="form-group"><label>Téléphone *</label><input type="tel" placeholder="(514) 000-0000" required></div>
+      <div class="form-group"><label>Courriel</label><input type="email" placeholder="vous@exemple.com"></div>
+      <div class="form-group"><label>Ville</label><input type="text" placeholder="Montréal, Longueuil..."></div>
+      <div class="form-group full"><label>Type d'établissement *</label>
+        <select required><option value="">Sélectionnez...</option><option>Restaurant</option><option>Bureau</option><option>Commerce / Boutique</option><option>Clinique dentaire</option><option>Spa / Salon</option><option>Gym / Centre sportif</option><option>Cinéma</option><option>Immeuble à condos</option><option>Chantier / Après construction</option><option>Déménagement</option><option>Autre</option></select>
+      </div>
+      <div class="form-group full"><label>Type de service *</label>
+        <select required><option value="">Sélectionnez...</option><option>Entretien régulier</option><option>Nettoyage après construction / rénovation</option><option>Grand ménage</option><option>Nettoyage en profondeur</option><option>Avant / Après déménagement</option><option>Nettoyage ponctuel</option></select>
+      </div>
+      <div class="form-group full"><label>Message / Détails</label><textarea placeholder="Décrivez votre espace, superficie approximative, fréquence souhaitée..."></textarea></div>
+    </div>
+    <button class="form-submit" onclick="submitForm()">Envoyer ma demande →</button>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Prêt pour un espace <span>impeccable</span> ?</h2>
+  <p>Appelez-nous ou écrivez-nous — on vous répond dans les 24 heures.</p>
+  <a href="#soumission" class="btn btn-primary" style="position:relative">Soumission gratuite →</a>
+  <div class="cta-contacts">
+    <a href="tel:5147796541" class="contact-chip">📞 (514) 779-6541</a>
+    <a href="mailto:sosnettoyage514@gmail.com" class="contact-chip">✉️ sosnettoyage514@gmail.com</a>
+    <a href="https://sosnettoyages.ca" class="contact-chip">🌐 sosnettoyages.ca</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-circle">SOS</div>
+      <p>Entreprise familiale de nettoyage commercial depuis 2016. Plus de 250 clients satisfaits dans le Grand Montréal. Professionnels, fiables, disponibles 7 jours sur 7.</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li>Après construction</li><li>Restaurants & Commerces</li><li>Bureaux</li><li>Cliniques dentaires</li><li>Spas & Salons</li><li>Gyms & Condos</li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:5147796541">(514) 779-6541</a></li><li><a href="mailto:sosnettoyage514@gmail.com">sosnettoyage514@gmail.com</a></li><li><a href="https://sosnettoyages.ca">sosnettoyages.ca</a></li><li>Grand Montréal, QC</li><li>7 jours sur 7</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>SOS Nettoyage inc</span> — Tous droits réservés</p>
+    <p>Entreprise familiale 100% québécoise 🍁</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function submitForm(){alert('Merci pour votre demande!\n\nNous vous contacterons dans les 24 heures avec votre soumission gratuite.\n\nPour une réponse immédiate:\n📞 (514) 779-6541');}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-80,behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
